@@ -1,0 +1,37 @@
+<h2>Consulta de Dados</h2>
+
+<form (ngSubmit)="verificarDados()">
+  <label for="cidade">Cidade:</label>
+  <input type="text" id="cidade" [(ngModel)]="cidade" name="cidade" required>
+
+  <label for="estado">Estado:</label>
+  <select id="estado" [(ngModel)]="estado" name="estado" required>
+    <option value="">Selecione</option>
+    <option *ngFor="let uf of estados" [value]="uf">{{ uf }}</option>
+  </select>
+
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" [(ngModel)]="nome" name="nome" required>
+
+  <label for="cpf">CPF:</label>
+  <input type="text" id="cpf" [(ngModel)]="cpf" name="cpf" required>
+
+  <label for="idade">Idade:</label>
+  <input type="number" id="idade" [(ngModel)]="idade" name="idade" required>
+
+  <label for="matricula">Matrícula:</label>
+  <input type="text" id="matricula" [(ngModel)]="matricula" name="matricula" required>
+
+  <button type="submit">Consultar</button>
+</form>
+
+<!-- Mensagem de erro -->
+<p *ngIf="mensagemErro" style="color: red;">{{ mensagemErro }}</p>
+
+<!-- Se os dados forem válidos, exibir as notas -->
+<div *ngIf="notasVisiveis">
+  <h3>Suas Notas</h3>
+  <ul>
+    <li *ngFor="let nota of notas">{{ nota }}</li>
+  </ul>
+</div>
