@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import {  HttpClientModule } from '@angular/common/http'; 
 @Component({
   selector: 'app-consultar',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,HttpClientModule],
   templateUrl: './consultar.component.html',
   styleUrl: './consultar.component.css'
 })
