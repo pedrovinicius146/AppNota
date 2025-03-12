@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  justify-content: space-between; /* Espaço uniforme entre as seções */
+  gap: 2rem; /* Espaçamento entre os blocos */
+  max-width: 1000px; /* Ajusta a largura máxima */
+  margin: 0 auto; /* Centraliza a seção */
+}
+
+.form-card {
+  flex: 1; /* Faz cada seção ocupar metade do espaço */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+/* Estilizando o formulário */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Reduz o espaço entre os campos */
+}
+
+.form-group label {
+  width: 150px; /* Alinha os labels */
+  text-align: right;
+  margin-right: 0.5rem;
+}
+
+.form-group input, .form-group select {
+  flex: 1;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Empilha os blocos no mobile */
+  }
+}
+*{
+  margin-top: 10px;
+}

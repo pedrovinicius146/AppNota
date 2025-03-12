@@ -1,43 +1,51 @@
-<h2>Consulta de Dados</h2>
+<div class="container">
+  <h2>Consultar Notas por CPF</h2>
 
-<form (ngSubmit)="verificarDados()">
-  <label for="cidade">Cidade:</label>
-  <input type="text" id="cidade" [(ngModel)]="cidade" name="cidade" required>
-  <br>
-  <br>
-  <label for="estado">Estado:</label>
-  <select id="estado" [(ngModel)]="estado" class="form-select" name="estado" required>
-    <option value="">Selecione</option>
-    <option *ngFor="let uf of estados" [value]="uf">{{ uf }}</option>
-  </select>
-  <br>
-  <br>
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" [(ngModel)]="nome" name="nome" required>
-  <br>
-      <br>
-  <label for="cpf">CPF:</label>
-  <input type="text" id="cpf" [(ngModel)]="cpf" name="cpf" required>
-  <br>
-      <br>
-  <label for="idade">Idade:</label>
-  <input type="number" id="idade" [(ngModel)]="idade" name="idade" required>
-  <br>
-      <br>
-  <label for="matricula">Matrícula:</label>
-  <input type="text" id="matricula" [(ngModel)]="matricula" name="matricula" required>
-  <br>
-      <br>
-  <button type="submit">Consultar</button>
-</form>
+  <form (ngSubmit)="verificarDados()">
+    <div class="form-group">
+      <label for="cidade">Cidade:</label>
+      <input type="text" id="cidade" [(ngModel)]="cidade" name="cidade" required>
+    </div>
 
-<!-- Mensagem de erro -->
-<p *ngIf="mensagemErro" style="color: red;">{{ mensagemErro }}</p>
+    <div class="form-group">
+      <label for="estado">Estado:</label>
+      <select id="estado" [(ngModel)]="estado" name="estado" required>
+        <option value="">Selecione o Estado</option>
+        <option *ngFor="let uf of estados" [value]="uf">{{ uf }}</option>
+      </select>
+    </div>
 
-<!-- Se os dados forem válidos, exibir as notas -->
-<div *ngIf="notasVisiveis">
-  <h3>Suas Notas</h3>
-  <ul>
-    <li *ngFor="let nota of notas">{{ nota }}</li>
-  </ul>
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" [(ngModel)]="nome" name="nome" required>
+    </div>
+
+    <div class="form-group">
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" [(ngModel)]="cpf" name="cpf" placeholder="000.000.000-00" required>
+    </div>
+
+    <div class="form-group">
+      <label for="idade">Idade:</label>
+      <input type="number" id="idade" [(ngModel)]="idade" name="idade" required>
+    </div>
+
+    <div class="form-group">
+      <label for="matricula">Matrícula:</label>
+      <input type="text" id="matricula" [(ngModel)]="matricula" name="matricula" required>
+    </div>
+
+    <button type="submit">Consultar</button>
+  </form>
+
+  <p class="erro" *ngIf="mensagemErro">{{ mensagemErro }}</p>
+
+  <div *ngIf="notasVisiveis">
+    <h3>Notas do Aluno</h3>
+    <ul>
+      <li><strong>Matemática:</strong> {{ notas.matematica }}</li>
+      <li><strong>Estrutura de Dados:</strong> {{ notas.estruturaDeDados }}</li>
+      <li><strong>Algoritmos:</strong> {{ notas.algoritmos }}</li>
+    </ul>
+  </div>
 </div>

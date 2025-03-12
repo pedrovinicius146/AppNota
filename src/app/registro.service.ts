@@ -1,3 +1,4 @@
+// registro.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -12,5 +13,12 @@ export class RegistroService {
 
   registrar(dados: any): Observable<any> {
     return this.http.post(this.apiUrl, dados);
+  }
+
+  consultar(dados: any): Observable<any> {
+    
+    const consultaUrl = `${this.apiUrl}?cidade=${dados.cidade}&estado=${dados.estado}&nome=${dados.nome}&cpf=${dados.cpf}&idade=${dados.idade}&matricula=${dados.matricula}`;
+
+    return this.http.get(consultaUrl);
   }
 }
